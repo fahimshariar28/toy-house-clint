@@ -40,13 +40,25 @@ const ReactTabs = () => {
             </Tab>
           ))}
         </TabList>
-
-        {/* <TabPanel>
-          <h2>Any content 1</h2>
-        </TabPanel>
-        <TabPanel>
-          <h2>Any content 2</h2>
-        </TabPanel> */}
+        {toys.map((toy) => (
+          <TabPanel key={toy._id}>
+            <div className="card w-96 bg-base-100 shadow-xl">
+              <figure>
+                <img src={toy.picture_url} alt="Shoes" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{toy.name}</h2>
+                <div className="flex justify-center">
+                  <p>Price: ${toy.price}</p>
+                  <p>Rating: {toy.rating}</p>
+                </div>
+                <div className="card-actions justify-end">
+                  <button className="btn btn-primary">View Details</button>
+                </div>
+              </div>
+            </div>
+          </TabPanel>
+        ))}
       </Tabs>
     </div>
   );
