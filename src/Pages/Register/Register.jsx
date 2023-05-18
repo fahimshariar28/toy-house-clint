@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-import { AuthContext } from "../../../public/provider/AuthProvider";
 import app from "../../firebase/firebase.config";
 import { getAuth, updateProfile } from "firebase/auth";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
   const auth = getAuth(app);
