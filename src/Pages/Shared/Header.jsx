@@ -1,9 +1,14 @@
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { FaEquals, FaRegTimesCircle } from "react-icons/fa";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogout = () => {
+    logOut();
+  };
 
   return (
     <div className="w-9/12 mx-auto mt-5 flex justify-between items-center">
@@ -36,12 +41,49 @@ const Header = () => {
         >
           Toys
         </NavLink>
+        {user && (
+          <NavLink
+            to="/myToys"
+            className={({ isActive }) => (isActive ? "active-link" : "link")}
+          >
+            My Toys
+          </NavLink>
+        )}
         <NavLink
           to="/blog"
           className={({ isActive }) => (isActive ? "active-link" : "link")}
         >
           Blog
         </NavLink>
+        {user && (
+          <div
+            className="avatar tooltip tooltip-bottom tooltip-primary"
+            data-tip={user.displayName}
+          >
+            <div className="w-9 rounded-full  ring-1 ring-primary">
+              <img src={user.photoURL} />
+            </div>
+          </div>
+        )}
+        {!user ? (
+          <Link to="/login">
+            <button
+              type="button"
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 "
+            >
+              Login
+            </button>
+          </Link>
+        ) : (
+          <Link onClick={handleLogout}>
+            <button
+              type="button"
+              className="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2"
+            >
+              Logout
+            </button>
+          </Link>
+        )}
       </nav>
     </div>
   );
