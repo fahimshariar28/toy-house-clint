@@ -3,6 +3,7 @@ import SingleToy from "./SIngleToy";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
+  const [seeAll, setSeeAll] = useState(false);
 
   useEffect(() => {
     fetch("http://localhost:5000/toys")
@@ -19,9 +20,21 @@ const AllToys = () => {
         All Toys
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-        {toys.slice(0, 20).map((toy) => (
-          <SingleToy key={toy._id} toy={toy}></SingleToy>
-        ))}
+        {!seeAll
+          ? toys
+              .slice(0, 20)
+              .map((toy) => <SingleToy key={toy._id} toy={toy}></SingleToy>)
+          : toys.map((toy) => <SingleToy key={toy._id} toy={toy}></SingleToy>)}
+      </div>
+      <div className="flex justify-center">
+        <button
+          onClick={() => setSeeAll(!seeAll)}
+          className={`my-5 bg-sky-500 px-5 py-2 rounded font-bold text-white ${
+            seeAll ? "hidden" : "block"
+          }`}
+        >
+          See All
+        </button>
       </div>
     </div>
   );
