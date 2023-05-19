@@ -18,9 +18,9 @@ const SingleToy = ({ toy }) => {
         <img src={picture_url} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <div className="flex justify-evenly gap-5 text-primary">
+        <div className="text-primary">
           <h2 className="card-title">{name}</h2>
-          {postedBy && <h2 className="card-title">Seller: {name}</h2>}
+          {postedBy && <h2 className="card-title">Seller: {postedBy}</h2>}
         </div>
         <div>
           <p>Category: {category}</p>
