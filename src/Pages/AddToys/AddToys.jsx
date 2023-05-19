@@ -1,9 +1,13 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddToys = () => {
   const { user } = useContext(AuthContext);
+  const notify = () => toast("Toy Added");
+
   const {
     register,
     handleSubmit,
@@ -17,6 +21,9 @@ const AddToys = () => {
     })
       .then((res) => res.json())
       .then((result) => {
+        if (result.insertedId) {
+          notify();
+        }
         console.log(result);
       });
     console.log(data);
@@ -108,6 +115,9 @@ const AddToys = () => {
 
         <input className="btn bg-primary" type="submit" />
       </form>
+      <div>
+        <ToastContainer />
+      </div>
     </div>
   );
 };
