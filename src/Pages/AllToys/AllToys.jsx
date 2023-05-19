@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import SingleToy from "./SIngleToy";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [seeAll, setSeeAll] = useState(false);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
+  useTitle("All Toys");
   console.log(search);
 
   useEffect(() => {

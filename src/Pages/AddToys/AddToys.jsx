@@ -3,10 +3,12 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../hooks/useTitle";
 
 const AddToys = () => {
   const { user } = useContext(AuthContext);
   const notify = () => toast("Toy Added");
+  useTitle("Add Toys");
 
   const {
     register,

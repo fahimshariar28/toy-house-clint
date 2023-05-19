@@ -1,4 +1,7 @@
+import useTitle from "../../hooks/useTitle";
+
 const Blog = () => {
+  useTitle("Blog");
   return (
     <div className="w-9/12 mx-auto my-10 flex flex-col gap-5">
       <div

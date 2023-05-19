@@ -2,9 +2,11 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
   const location = useLocation();
+  useTitle("Login");
   const from = location.state?.from || "/";
   const { signIn, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();

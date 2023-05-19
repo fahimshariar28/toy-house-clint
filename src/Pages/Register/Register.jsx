@@ -4,12 +4,14 @@ import { FaGoogle } from "react-icons/fa";
 import app from "../../firebase/firebase.config";
 import { getAuth, updateProfile } from "firebase/auth";
 import { AuthContext } from "../../provider/AuthProvider";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
   const auth = getAuth(app);
   const { createUser, signInWithGoogle, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  useTitle("Register");
 
   const handelRegister = (e) => {
     e.preventDefault();
