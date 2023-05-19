@@ -13,6 +13,20 @@ const MyToys = () => {
         setToys(data);
       });
   }, [user]);
+  const handleDelete = (id) => {
+    fetch(`http://localhost:5000/deleteToy/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.deletedCount) {
+          const remainingToys = toys.filter((toy) => toy._id !== id);
+          setToys(remainingToys);
+          alert("Toy Deleted");
+        }
+      });
+  };
   return (
     <div className="w-9/12 mx-auto mt-10">
       <div className="overflow-x-auto">
@@ -45,7 +59,12 @@ const MyToys = () => {
                   <button className="btn btn-accent">Edit</button>
                 </td>
                 <td>
-                  <button className="btn btn-error">Delete</button>
+                  <button
+                    onClick={() => handleDelete(toy._id)}
+                    className="btn btn-error"
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
