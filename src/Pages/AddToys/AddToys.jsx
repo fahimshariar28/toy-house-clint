@@ -51,12 +51,14 @@ const AddToys = () => {
           className="p-3 m-1 border-2 w-2/6"
           placeholder="Toy Name"
           {...register("name")}
+          defaultValue="Red Racer"
         />
         <input
           required
           className="p-3 m-1 border-2 w-2/6"
           placeholder="Picture URL"
           {...register("url")}
+          defaultValue="https://i.ibb.co/VSPjdMc/red-racer.jpg"
         />
         <br />
         <label className="label">
@@ -90,24 +92,28 @@ const AddToys = () => {
           className="p-3 m-1 border-2 w-2/6"
           placeholder="Price"
           {...register("price")}
+          defaultValue="100"
         />
         <input
           required
           className="p-3 m-1 border-2 w-2/6"
           placeholder="Rating"
           {...register("rating")}
+          defaultValue="4.5"
         />
         <input
           required
           className="p-3 m-1 border-2 w-2/6"
           placeholder="Quantity"
           {...register("quantity")}
+          defaultValue="10"
         />
         <input
           required
           className="p-3 m-1 border-2 w-4/5"
           placeholder="Description"
           {...register("description")}
+          defaultValue="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
         />
         <br />
         {/* errors will return when field validation fails  */}
