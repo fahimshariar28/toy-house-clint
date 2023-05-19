@@ -92,21 +92,21 @@ const AddToys = () => {
           className="p-3 m-1 border-2 w-2/6"
           placeholder="Price"
           {...register("price")}
-          defaultValue="100"
+          defaultValue={100}
         />
         <input
           required
           className="p-3 m-1 border-2 w-2/6"
           placeholder="Rating"
           {...register("rating")}
-          defaultValue="4.5"
+          defaultValue={4.5}
         />
         <input
           required
           className="p-3 m-1 border-2 w-2/6"
           placeholder="Quantity"
           {...register("quantity")}
-          defaultValue="10"
+          defaultValue={10}
         />
         <input
           required

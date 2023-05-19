@@ -29,13 +29,26 @@ const MyToys = () => {
             </tr>
           </thead>
           <tbody>
-            {/* row 1 */}
-            <tr>
-              <th>1</th>
-              <td>Cy Ganderton</td>
-              <td>Quality Control Specialist</td>
-              <td>Blue</td>
-            </tr>
+            {toys.map((toy, index) => (
+              <tr key={toy._id}>
+                <th>{index + 1}</th>
+                <td>{toy.name}</td>
+                <td>{toy.category}</td>
+                <td>{toy.subCategory}</td>
+                <td>{toy.price}</td>
+                <td>{toy.quantity}</td>
+                {/* <td>
+                  <button className="btn btn-accent">Edit</button>
+                </td> */}
+                {/* open a daisy ui modal to update details */}
+                <td>
+                  <button className="btn btn-accent">Edit</button>
+                </td>
+                <td>
+                  <button className="btn btn-error">Delete</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
