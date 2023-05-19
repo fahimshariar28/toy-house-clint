@@ -14,6 +14,7 @@ const MyToys = () => {
         setToys(data);
       });
   }, [user]);
+
   const handleDelete = (id) => {
     Swal.fire({
       title: "Are you sure?",
@@ -40,6 +41,19 @@ const MyToys = () => {
       }
     });
   };
+
+  const handleSortByPrice = async (sortOrder) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/myToys/${user?.email}/sortByPrice/${sortOrder}`
+      );
+      const data = await response.json();
+      setToys(data);
+    } catch (error) {
+      console.error("Error sorting toys:", error);
+    }
+  };
+
   return (
     <div className="w-9/12 mx-auto mt-10">
       <div className="overflow-x-auto">
@@ -51,7 +65,23 @@ const MyToys = () => {
               <th>Name</th>
               <th>Category</th>
               <th>Sub Category</th>
-              <th>Price</th>
+              <th>
+                Price
+                <div className="flex justify-evenly items-center -ms-5">
+                  <button
+                    className="sort-button text-xl text-primary"
+                    onClick={() => handleSortByPrice("asc")}
+                  >
+                    ↑
+                  </button>
+                  <button
+                    className="sort-button text-xl text-primary"
+                    onClick={() => handleSortByPrice("desc")}
+                  >
+                    ↓
+                  </button>
+                </div>
+              </th>
               <th>Quantity</th>
               <th></th>
               <th></th>
