@@ -19,6 +19,16 @@ const AllToys = () => {
       })
       .catch((error) => console.log(error));
   }, []);
+  useEffect(() => {
+    if (search) {
+      fetch(`http://localhost:5000/searchToy/${search}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setToys(data);
+        })
+        .catch((error) => console.log(error));
+    }
+  }, [search]);
   if (loading) {
     return (
       <div className="flex my-10 justify-center items-center space-x-2 text-primary">
