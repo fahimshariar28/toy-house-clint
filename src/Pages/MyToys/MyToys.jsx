@@ -53,10 +53,6 @@ const MyToys = () => {
                 <td>{toy.subCategory}</td>
                 <td>{toy.price}</td>
                 <td>{toy.quantity}</td>
-                {/* <td>
-                  <button className="btn btn-accent">Edit</button>
-                </td> */}
-                {/* open a daisy ui modal to update details */}
                 <td>
                   <button className="btn btn-accent">Edit</button>
                 </td>
