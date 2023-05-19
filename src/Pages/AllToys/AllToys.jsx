@@ -5,6 +5,8 @@ const AllToys = () => {
   const [toys, setToys] = useState([]);
   const [seeAll, setSeeAll] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [search, setSearch] = useState("");
+  console.log(search);
 
   useEffect(() => {
     setLoading(true);
@@ -49,6 +51,14 @@ const AllToys = () => {
       <h1 className="text-2xl text-primary text-center font-bold mt-5">
         All Toys
       </h1>
+      <div>
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          type="text"
+          placeholder="Search"
+          className="w-full p-3 border-2 border-gray-300 rounded mt-5"
+        />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
         {!seeAll
           ? toys
