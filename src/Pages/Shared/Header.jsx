@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaEquals, FaRegTimesCircle } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
+import logo from "/logo.png";
 
 const Header = () => {
   const [open, setOpen] = useState(false);
@@ -12,8 +13,10 @@ const Header = () => {
 
   return (
     <div className="w-9/12 mx-auto mt-5 flex justify-between items-center">
-      <h2 className="text-3xl font-bold text-primary">Toy House</h2>
-
+      <Link to="/" className="flex justify-center items-center">
+        <img className="w-12" src={logo} alt="" />
+        <h2 className="text-3xl font-bold text-primary">Toy House</h2>
+      </Link>
       <div onClick={() => setOpen(!open)} className="text-sky-500 md:hidden">
         <span>
           {open == false ? (
