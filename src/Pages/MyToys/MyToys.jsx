@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
+import { Link } from "react-router-dom";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -97,7 +98,9 @@ const MyToys = () => {
                 <td>{toy.price}</td>
                 <td>{toy.quantity}</td>
                 <td>
-                  <button className="btn btn-accent">Edit</button>
+                  <Link to={`/updateToy/${toy._id}`}>
+                    <button className="btn btn-accent">Edit</button>
+                  </Link>
                 </td>
                 <td>
                   <button
