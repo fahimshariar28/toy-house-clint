@@ -12,7 +12,6 @@ const SingleToy = () => {
     picture_url,
     rating,
     category,
-    subCategory,
     price,
     quantity,
     description,
@@ -34,11 +33,7 @@ const SingleToy = () => {
               ></Rating>
             </div>
             {postedBy && <p>Seller: {postedBy}</p>}
-            <div className="flex justify-center items-center gap-5">
-              <p>Category: {category}</p>
-              <p>|</p>
-              <p>Sub Category: {subCategory}</p>
-            </div>
+            <p>Category: {category}</p>
             <hr className="w-80 h-1 mx-auto my-4 bg-primary border-0 rounded" />
             <h1 className="text-4xl font-semibold textarea-accent">
               Price: ${price}

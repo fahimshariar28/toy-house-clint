@@ -66,7 +66,6 @@ const MyToys = () => {
               <th>#</th>
               <th>Name</th>
               <th>Category</th>
-              <th>Sub Category</th>
               <th>
                 Price
                 <div className="flex justify-evenly items-center -ms-5">
@@ -95,7 +94,6 @@ const MyToys = () => {
                 <th>{index + 1}</th>
                 <td>{toy.name}</td>
                 <td>{toy.category}</td>
-                <td>{toy.subCategory}</td>
                 <td>{toy.price}</td>
                 <td>{toy.quantity}</td>
                 <td>

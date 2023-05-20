@@ -72,21 +72,9 @@ const AddToys = () => {
           {...register("category")}
         >
           <option className="disabled selected"> </option>
-          <option value="Boys"> Boys</option>
-          <option value="Girls"> Girls</option>
-        </select>
-        <select
-          required
-          className="p-3 m-1 border-2 w-1/2"
-          {...register("subCategory")}
-        >
-          <option className="disabled selected"> </option>
-          <option value="Toy-Cars"> Toy-Cars</option>
-          <option value="Action-Figures"> Action-Figures</option>
-          <option value="Animal-Toys"> Animal-Toys</option>
-          <option value="Dolls"> Dolls</option>
-          <option value="Girls-Makeup"> Girls-Makeup</option>
-          <option value="Cooking-Toys"> Cooking-Toys</option>
+          <option value="SportsCar"> Sports Car</option>
+          <option value="Truck"> Truck</option>
+          <option value="PoliceCar"> Police Car</option>
         </select>
         <br />
         <input

@@ -29,7 +29,7 @@ const Header = () => {
 
       <nav
         className={`flex flex-col md:flex-row justify-center items-center gap-4 absolute md:static duration-1000 rounded-md ${
-          open ? "top-20 right-6" : "-top-72 right-6"
+          open ? "top-20 right-6" : "-top-96 right-6"
         } z-10`}
       >
         <NavLink

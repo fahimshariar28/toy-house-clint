@@ -8,7 +8,6 @@ const SingleToy = ({ toy }) => {
     rating,
     picture_url,
     category,
-    subCategory,
     postedBy,
     quantity,
   } = toy;
@@ -22,10 +21,7 @@ const SingleToy = ({ toy }) => {
           <h2 className="card-title">{name}</h2>
           {postedBy && <h2 className="card-title">Seller: {postedBy}</h2>}
         </div>
-        <div>
-          <p>Category: {category}</p>
-          <p>Sub Category: {subCategory}</p>
-        </div>
+        <p>Category: {category}</p>
         <div className="flex justify-center">
           <p>Price: ${price}</p>
           <p>Rating: {rating}</p>
