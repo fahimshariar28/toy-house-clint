@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
 import SingleToy from "./SIngleToy";
 import useTitle from "../../hooks/useTitle";
+import { useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   const [toys, setToys] = useState([]);
-  const [seeAll, setSeeAll] = useState(false);
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const { totalToys } = useLoaderData();
+  const toysPerPage = 20;
+  const totalPages = Math.ceil(totalToys / toysPerPage);
+  const pageNumbers = [...Array(totalPages).keys()];
   useTitle("All Toys");
   console.log(search);
-
   useEffect(() => {
     setLoading(true);
-    fetch("https://toy-house-server-fahimshariar28.vercel.app/toys")
+    fetch(
+      `https://toy-house-server-fahimshariar28.vercel.app/toys?page=${currentPage}&limit=${toysPerPage}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -20,7 +26,7 @@ const AllToys = () => {
         setLoading(false);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [currentPage, toysPerPage]);
   useEffect(() => {
     if (search) {
       fetch(
@@ -88,25 +94,22 @@ const AllToys = () => {
             </tr>
           </thead>
           <tbody>
-            {!seeAll
-              ? toys
-                  .slice(0, 20)
-                  .map((toy) => <SingleToy key={toy._id} toy={toy}></SingleToy>)
-              : toys.map((toy) => (
-                  <SingleToy key={toy._id} toy={toy}></SingleToy>
-                ))}
+            {toys.map((toy) => (
+              <SingleToy key={toy._id} toy={toy}></SingleToy>
+            ))}
           </tbody>
         </table>
       </div>
-      <div className="flex justify-center">
-        <button
-          onClick={() => setSeeAll(!seeAll)}
-          className={`my-5 bg-sky-500 px-5 py-2 rounded font-bold text-white ${
-            seeAll ? "hidden" : "block"
-          }`}
-        >
-          See All
-        </button>
+      <div className="flex justify-center items-center space-x-2 mt-5">
+        {pageNumbers.map((number) => (
+          <button
+            onClick={() => setCurrentPage(number + 1)}
+            key={number}
+            className="bg-primary text-white px-3 py-2 rounded"
+          >
+            {number + 1}
+          </button>
+        ))}
       </div>
     </div>
   );
