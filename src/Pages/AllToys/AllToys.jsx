@@ -17,7 +17,7 @@ const AllToys = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://toy-house-server-fahimshariar28.vercel.app/toys?page=${currentPage}&limit=${toysPerPage}`
+      `https://toy-house-server-sable.vercel.app/toys?page=${currentPage}&limit=${toysPerPage}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -29,9 +29,7 @@ const AllToys = () => {
   }, [currentPage, toysPerPage]);
   useEffect(() => {
     if (search) {
-      fetch(
-        `https://toy-house-server-fahimshariar28.vercel.app/searchToy/${search}`
-      )
+      fetch(`https://toy-house-server-sable.vercel.app/searchToy/${search}`)
         .then((res) => res.json())
         .then((data) => {
           setToys(data);

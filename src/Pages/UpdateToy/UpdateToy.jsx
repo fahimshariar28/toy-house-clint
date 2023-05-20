@@ -12,7 +12,7 @@ const UpdateToy = () => {
   } = useForm();
   const onSubmit = (data) => {
     fetch(
-      `https://toy-house-server-fahimshariar28.vercel.app/updateDetails/${toy._id}`,
+      `https://toy-house-server-sable.vercel.app/updateDetails/${toy._id}`,
       {
         method: "PATCH",
         headers: {
