@@ -85,6 +85,7 @@ const MyToys = () => {
                 </div>
               </th>
               <th>Quantity</th>
+              <th>Details</th>
               <th></th>
               <th></th>
             </tr>
@@ -97,6 +98,7 @@ const MyToys = () => {
                 <td>{toy.category}</td>
                 <td>{toy.price}</td>
                 <td>{toy.quantity}</td>
+                <td>{toy.description.slice(0, 50)}....</td>
                 <td>
                   <Link to={`/updateToy/${toy._id}`}>
                     <button className="btn btn-accent">Edit</button>
