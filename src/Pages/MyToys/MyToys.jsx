@@ -10,7 +10,9 @@ const MyToys = () => {
   useTitle("My Toys");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myToys/${user?.email}`)
+    fetch(
+      `https://toy-house-server-fahimshariar28.vercel.app/myToys/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -29,9 +31,12 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/deleteToy/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://toy-house-server-fahimshariar28.vercel.app/deleteToy/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((result) => {
             console.log(result);
@@ -48,7 +53,7 @@ const MyToys = () => {
   const handleSortByPrice = async (sortOrder) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/myToys/${user?.email}/sortByPrice/${sortOrder}`
+        `https://toy-house-server-fahimshariar28.vercel.app/myToys/${user?.email}/sortByPrice/${sortOrder}`
       );
       const data = await response.json();
       setToys(data);

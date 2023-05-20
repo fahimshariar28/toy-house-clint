@@ -45,7 +45,10 @@ const router = createBrowserRouter([
             <ToyDetails></ToyDetails>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-house-server-fahimshariar28.vercel.app/toy/${params.id}`
+          ),
       },
       {
         path: "/myToys",
@@ -71,7 +74,10 @@ const router = createBrowserRouter([
             <UpdateToy></UpdateToy>
           </PrivateRoute>
         ),
-        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://toy-house-server-fahimshariar28.vercel.app/toy/${params.id}`
+          ),
       },
     ],
   },

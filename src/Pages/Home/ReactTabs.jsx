@@ -10,7 +10,7 @@ const ReactTabs = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/toysCategory")
+    fetch("https://toy-house-server-fahimshariar28.vercel.app/toysCategory")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -19,7 +19,7 @@ const ReactTabs = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${category}`)
+    fetch(`https://toy-house-server-fahimshariar28.vercel.app/toys/${category}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

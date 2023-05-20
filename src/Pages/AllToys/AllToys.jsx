@@ -12,7 +12,7 @@ const AllToys = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/toys")
+    fetch("https://toy-house-server-fahimshariar28.vercel.app/toys")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -23,7 +23,9 @@ const AllToys = () => {
   }, []);
   useEffect(() => {
     if (search) {
-      fetch(`http://localhost:5000/searchToy/${search}`)
+      fetch(
+        `https://toy-house-server-fahimshariar28.vercel.app/searchToy/${search}`
+      )
         .then((res) => res.json())
         .then((data) => {
           setToys(data);
