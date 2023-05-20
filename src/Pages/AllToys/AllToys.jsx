@@ -71,12 +71,30 @@ const AllToys = () => {
           className="w-full p-3 border-2 border-gray-300 rounded mt-5"
         />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
-        {!seeAll
-          ? toys
-              .slice(0, 20)
-              .map((toy) => <SingleToy key={toy._id} toy={toy}></SingleToy>)
-          : toys.map((toy) => <SingleToy key={toy._id} toy={toy}></SingleToy>)}
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full">
+          {/* head */}
+          <thead>
+            <tr>
+              <th></th>
+              <th>Seller Name</th>
+              <th>Toy Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Available Quantity</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {!seeAll
+              ? toys
+                  .slice(0, 20)
+                  .map((toy) => <SingleToy key={toy._id} toy={toy}></SingleToy>)
+              : toys.map((toy) => (
+                  <SingleToy key={toy._id} toy={toy}></SingleToy>
+                ))}
+          </tbody>
+        </table>
       </div>
       <div className="flex justify-center">
         <button
