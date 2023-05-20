@@ -2,7 +2,7 @@ import About from "./About";
 import Banner from "./Banner";
 import Contact from "./Contact";
 import Gallery from "./Gallery";
-import ReactTabs from "./ReactTab/ReactTabs";
+import ReactTabs from "./ReactTabs";
 
 const Home = () => {
   return (
