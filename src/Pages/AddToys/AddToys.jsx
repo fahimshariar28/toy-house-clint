@@ -37,14 +37,16 @@ const AddToys = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         {/* register your input into the hook by invoking the "register" function */}
         <input
-          className="p-3 m-1 border-2 w-2/6 hidden"
+          className="p-3 m-1 border-2 w-2/6"
           defaultValue={user.displayName}
           {...register("postedBy")}
+          readOnly
         />
         <input
-          className="p-3 m-1 border-2 w-2/6 hidden"
+          className="p-3 m-1 border-2 w-2/6"
           defaultValue={user.email}
           {...register("email")}
+          readOnly
         />
         <input
           required

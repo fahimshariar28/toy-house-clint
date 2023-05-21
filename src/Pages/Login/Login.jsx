@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const location = useLocation();
@@ -19,6 +20,12 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        Swal.fire({
+          icon: "success",
+          title: "Login Success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -33,6 +40,12 @@ const Login = () => {
         // Signed in
         const user = userCredential.user;
         console.log(user);
+        Swal.fire({
+          icon: "success",
+          title: "Login Success",
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate(from, { replace: true });
       })
       .catch((error) => {
