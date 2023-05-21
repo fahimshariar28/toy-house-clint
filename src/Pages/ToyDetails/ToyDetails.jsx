@@ -5,7 +5,6 @@ import useTitle from "../../hooks/useTitle";
 
 const SingleToy = () => {
   const toy = useLoaderData();
-  console.log(toy);
   useTitle(toy.name);
   const {
     name,

@@ -13,7 +13,6 @@ const AllToys = () => {
   const totalPages = Math.ceil(totalToys / toysPerPage);
   const pageNumbers = [...Array(totalPages).keys()];
   useTitle("All Toys");
-  console.log(search);
   useEffect(() => {
     setLoading(true);
     fetch(
@@ -21,7 +20,6 @@ const AllToys = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setToys(data);
         setLoading(false);
       })

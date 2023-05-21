@@ -13,7 +13,6 @@ const ReactTabs = () => {
     fetch("https://toy-house-server-sable.vercel.app/toysCategory")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCategories(data);
       });
   }, []);
@@ -22,7 +21,6 @@ const ReactTabs = () => {
     fetch(`https://toy-house-server-sable.vercel.app/toys/${category}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setToys(data);
       });
   }, [category]);

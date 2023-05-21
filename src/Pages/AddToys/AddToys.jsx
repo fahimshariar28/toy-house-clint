@@ -26,9 +26,7 @@ const AddToys = () => {
         if (result.insertedId) {
           notify();
         }
-        console.log(result);
       });
-    console.log(data);
   };
 
   return (

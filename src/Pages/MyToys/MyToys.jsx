@@ -13,7 +13,6 @@ const MyToys = () => {
     fetch(`https://toy-house-server-sable.vercel.app/myToys/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setToys(data);
       });
   }, [user]);
@@ -34,7 +33,6 @@ const MyToys = () => {
         })
           .then((res) => res.json())
           .then((result) => {
-            console.log(result);
             if (result.deletedCount) {
               const remainingToys = toys.filter((toy) => toy._id !== id);
               setToys(remainingToys);

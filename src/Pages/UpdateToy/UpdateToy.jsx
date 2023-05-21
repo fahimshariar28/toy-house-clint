@@ -4,7 +4,6 @@ import Swal from "sweetalert2";
 
 const UpdateToy = () => {
   const toy = useLoaderData();
-  console.log(toy);
   const {
     register,
     handleSubmit,
@@ -23,7 +22,6 @@ const UpdateToy = () => {
     )
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.modifiedCount) {
           Swal.fire({
             icon: "success",
